@@ -1,10 +1,10 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const PostTitle = document.querySelector('#post-title').value.trim();
+    const title = document.querySelector('#post-title').value.trim();
     const postBody = document.querySelector('#post-body').value.trim();
   
-    if (PostTitle && postBody) {
+    if (title && postBody) {
       const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({ title, postBody }),
@@ -46,5 +46,5 @@ const newFormHandler = async (event) => {
   let postList = document
     .querySelector('.post-list')
     if (postList){
-      postList.addEventListener('click', delButtonHandler);
+      postList.addEventListener('click', deletePostHandler);
     };
