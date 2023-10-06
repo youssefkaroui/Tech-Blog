@@ -1,5 +1,11 @@
-{{#each posts as |post| }}
-<article class="post">
-    {{> post-info post}}
-</article>
-{{/each}}
+<div>
+
+    <h2>I am the Homepage Component</h2>
+
+    {{#each posts as |post| }}
+    <article class="post">
+        <li>{{post}}</li>
+        {{> post-info post}}
+    </article>
+    {{/each}}
+</div>

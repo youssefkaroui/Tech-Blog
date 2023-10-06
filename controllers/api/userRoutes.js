@@ -2,8 +2,11 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 router.post('/signup', async (req, res) => {
+  console.log("Server Side: ", req.body);
+
   try {
     const signupData = await User.create(req.body);
+   
 
     req.session.save(() => {
       req.session.userId = signupData.id;
@@ -12,6 +15,7 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(signupData);
     });
   } catch (err) {
+    console.log("Error: ", err);
     res.status(400).json(err);
   }
 });

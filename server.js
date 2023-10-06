@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routers)
 // sequelize connection 
 sequelize.sync({force: false}).then(() => {
-    app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
-        console.log("Server is running.");
-    });;
+    console.log("Database connected...");
+ 
+    app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });
