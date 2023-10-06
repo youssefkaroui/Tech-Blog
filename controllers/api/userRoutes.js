@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const loginPassword = loginData.checkPassword(req.body.UserPassword); 
+    const loginPassword = loginData.checkPassword(req.body.userPassword); 
     
     if (!loginPassword) {
       res
