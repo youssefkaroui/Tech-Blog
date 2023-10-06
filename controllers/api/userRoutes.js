@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 router.post('/signup', async (req, res) => {
-  console.log("Server Side: ", req.body);
+ 
 
   try {
     const signupData = await User.create(req.body);
@@ -22,7 +22,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const loginData = await User.findOne({ where: { email: req.body.email } });
+    const loginData = await User.findOne({ where: { email: req.body.userEmail } });
 
     if (!loginData) {
       res
@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const loginPassword = loginData.checkPassword(req.body.password); 
+    const loginPassword = loginData.checkPassword(req.body.UserPassword); 
     
     if (!loginPassword) {
       res

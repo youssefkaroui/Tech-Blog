@@ -8,6 +8,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const hbs = exphbs.create()
 
 //setting up sequelize 
 const sess = {
@@ -18,12 +19,12 @@ const sess = {
     db: sequelize
 })
 }
-// setting up our handlebars
-const hbs = exphbs.create()
+app.use(session(sess));
+
 app.engine("handlebars", hbs.engine)
 app.set("view engine", "handlebars")
-//setting up our session
-app.use(session(sess));
+
+
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
@@ -32,7 +33,5 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routers)
 // sequelize connection 
 sequelize.sync({force: false}).then(() => {
-    console.log("Database connected...");
- 
-    app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
+    app.listen(PORT, () => console.log(`Now listening at PORT http://localhost:${PORT}/`));
 });
