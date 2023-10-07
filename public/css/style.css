@@ -1,2 +1,26 @@
 
- 
+ .navbar-brand {
+     text-align:left;
+     font-size: larger;
+     font-style: normal;
+     color: darkred;
+ }
+ .nav-link  e {
+    font-style: normal;
+     color:steelblue;
+ }
+ .welcome {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     color: teal;
+ }
+ .main-container {
+     background-color: whitesmoke;
+ }
+ h3 {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     color: teal;
+ }
+ a {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     color: darkred;
+ }

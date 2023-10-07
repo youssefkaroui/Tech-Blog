@@ -17,6 +17,6 @@ if(process.env.JAWSDB_URL){
         }
     );
 
-   // console.log("DB CONNECT: ", sequelize);
+  
 }
 module.exports = sequelize;
